@@ -1,20 +1,34 @@
 package com.org.mtgstore.model;
 
 import com.org.mtgstore.enums.ProductType;
+import jakarta.persistence.*;
 
-public class Product extends EntityId{
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_product")
+public abstract class Product extends EntityId{
+    @Column(name = "product_name")
     private String name;
+    @Column(name = "product_type")
     private ProductType typeProduct;
-    private Double purchasePrice;
+    @Column(name = "unitary_price")
     private Double unitaryValue;
+    @Column(name = "description")
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "id_store")
     private Store store;
 
     public Product() {
     }
 
-    public Long getStoreId(){
-        return store.getId();
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public String getName() {
@@ -33,12 +47,12 @@ public class Product extends EntityId{
         this.typeProduct = typeProduct;
     }
 
-    public Double getPurchasePrice() {
-        return purchasePrice;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPurchasePrice(Double purchasePrice) {
-        this.purchasePrice = purchasePrice;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Double getUnitaryValue() {
@@ -47,13 +61,5 @@ public class Product extends EntityId{
 
     public void setUnitaryValue(Double unitaryValue) {
         this.unitaryValue = unitaryValue;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

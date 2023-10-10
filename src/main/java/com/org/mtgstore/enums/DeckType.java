@@ -1,0 +1,27 @@
+package com.org.mtgstore.enums;
+
+public enum DeckType {
+    COMMANDER,
+    BOOSTER_DRAFT,
+    STANDARD,
+    PIONEER,
+    MODERN,
+    SEALED_DECK,
+    ALCHEMY,
+    EXPLORER,
+    HISTORIC,
+    COMMANDER_DRAFT,
+    PAUPER,
+    BRAWL,
+    CONSPIRACY,
+    TWOHEADED_GIANT,
+    LEGACY,
+    VINTAGE,
+    PLANECHASE,
+    OATHBREAKER,
+    TEAM_BOOSTER_DRAFT,
+    TEAM_SEALED_DECK,
+    FREEFORM,
+    MOMIR_BASIC,
+    COMMANDER_1V1
+}
