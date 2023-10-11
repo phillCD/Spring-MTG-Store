@@ -19,6 +19,9 @@ public abstract class Product extends EntityId{
     @ManyToOne
     @JoinColumn(name = "id_store")
     private Store store;
+    @ManyToOne
+    @JoinColumn(name = "card_id")
+    private Card card;
 
     public Product() {
     }
@@ -61,5 +64,13 @@ public abstract class Product extends EntityId{
 
     public void setUnitaryValue(Double unitaryValue) {
         this.unitaryValue = unitaryValue;
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
     }
 }
